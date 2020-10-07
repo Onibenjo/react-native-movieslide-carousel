@@ -20,9 +20,15 @@ This is an animated carousel/animated slider with lots of animations going on.
 Built using @expo, vanilla React Native Animated API and FlatList.
 This code works in plain React Native project as well since we are using only React Native APIs such as Animated and FlatList.
 
-- Inspiration: https://dribbble.com/shots/8257559-Movie-2-0
-- Expo: https://expo.io/
-- TMDB: https://www.themoviedb.org/
+Create a `config.js` inside `service` folder with
+
+```javascript
+export const API_KEY = "TMDB_API_KEY";
+```
+
+- Inspiration: <https://dribbble.com/shots/8257559-Movie-2-0>
+- Expo: <https://expo.io/>
+- TMDB: <https://www.themoviedb.org/>
 
 You can find me on:
 
