@@ -53,6 +53,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      {/* Not really necessary but 
+      the Maskview Image animation doesnt work doesnt work 
+      on android so you could go with only Backdrop */}
       {Platform.OS === "android" ? (
         <BackDrop movies={movies} scrollX={scrollX} />
       ) : (
