@@ -60,6 +60,6 @@ export const getMovies = async (params) => {
 
     return movies;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };

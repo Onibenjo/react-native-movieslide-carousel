@@ -2,11 +2,11 @@
 
 ## Run on your device
 
-Snack: <https://snack.expo.io/@catalinmiron/react-native-movie-2.0-carousel>
+Snack: <https://exp.host/@onibenjo/movieslide>
 
 ### Demo
 
-<img src="assets/motion_once.gif" width=35%>
+<img src="motion_once.gif" width=35%>
 
 Thanks to @catalinmiron
 

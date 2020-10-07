@@ -13,14 +13,20 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.onibenjo.movieslide",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.onibenjo.movieslide",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "This is an animated carousel/animated slider that:\n\n- uses the snapToInterval prop\n- displays a portion from the prev and next item\n- aligns the active slide in the middle\n- uses MaskedView (IOS only) and Animated View (for Android and IOS)",
+    "githubUrl": "https://github.com/onibenjo/react-native-movieslide-carousel"
   }
 }
