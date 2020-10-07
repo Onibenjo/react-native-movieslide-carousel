@@ -17,6 +17,7 @@ import Genres from "./src/components/Genres";
 import { getMovies } from "./src/service/api";
 import BackDrop from "./src/components/BackDrop";
 import { ITEM_SIZE, SPACER_ITEM_SIZE, SPACING } from "./src/constants";
+import BackDropIOS from "./src/components/BackDropIOS";
 
 // const { width, height } = Dimensions.get("window");
 
@@ -29,7 +30,12 @@ export default function App() {
   const scrollX = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     const fetchData = async () => {
-      const moviesData = await getMovies();
+      const moviesData = await getMovies({
+        // "popularity.desc"
+        primary_release_year: "2019",
+        sort_by: "popularity.desc",
+        // sort_by: "vote_average.desc",
+      });
       setMovies([
         { key: "left-spacer" },
         ...moviesData,
@@ -38,6 +44,7 @@ export default function App() {
     };
 
     if (movies.length === 0) fetchData();
+    // console.log(movies);
   }, [movies]);
 
   if (movies.length === 0) {
@@ -46,7 +53,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <BackDrop movies={movies} scrollX={scrollX} />
+      {Platform.OS === "android" ? (
+        <BackDrop movies={movies} scrollX={scrollX} />
+      ) : (
+        <BackDropIOS movies={movies} scrollX={scrollX} />
+      )}
       <StatusBar style="auto" />
       <Animated.FlatList
         showsHorizontalScrollIndicator={false}
@@ -57,13 +68,13 @@ export default function App() {
           alignItems: "center",
         }}
         snapToInterval={ITEM_SIZE} // maes the slide snap to one per scroll
-        decelerationRate={Platform.OS === "ios" ? 0 : 0.98} // makes the snap efective
+        decelerationRate={Platform.OS === "ios" ? 0 : 0.6} // makes the snap efective
         renderToHardwareTextureAndroid
         snapToAlignment="start"
         bounces={false} // removes bounce on first slide
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: false }
+          { useNativeDriver: Platform.OS === "ios" }
         )} // making active bigger on scroll
         scrollEventThrottle={16}
         renderItem={({ item, index }) => {
@@ -76,7 +87,7 @@ export default function App() {
             (index - 1) * ITEM_SIZE,
             index * ITEM_SIZE,
           ];
-          const outputRange = [120, 50, 120];
+          const outputRange = [100, 30, 100];
 
           const translateY = scrollX.interpolate({
             inputRange,
@@ -126,7 +137,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     marginHorizontal: SPACING,
-    padding: SPACING * 2,
+    padding: SPACING * 0.91,
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: 34,
@@ -135,7 +146,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   description: {
-    fontSize: 12,
+    fontSize: 16,
   },
   spacer: {
     width: SPACER_ITEM_SIZE,

@@ -7,7 +7,6 @@ import {
   StyleSheet,
   View,
   Animated,
-  Platform,
 } from "react-native";
 import Svg, { Rect } from "react-native-svg";
 // import LinearGradient from "react-native-linear-gradient";
@@ -18,7 +17,7 @@ const { width, height } = Dimensions.get("window");
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
-const BackDrop = ({ scrollX, movies }) => {
+const BackDropIOS = ({ scrollX, movies }) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -57,7 +56,7 @@ const BackDrop = ({ scrollX, movies }) => {
   );
 };
 
-export default BackDrop;
+export default BackDropIOS;
 
 const styles = StyleSheet.create({
   container: {

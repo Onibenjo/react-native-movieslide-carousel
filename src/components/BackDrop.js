@@ -20,7 +20,7 @@ const BackDrop = ({ scrollX, movies }) => {
   return (
     <View style={{ height: BACKDROP_HEIGHT, width, position: "absolute" }}>
       <FlatList
-        data={movies.reverse()}
+        data={movies}
         keyExtractor={(item) => item.key + "-backdrop"}
         removeClippedSubviews={false}
         contentContainerStyle={{ width, height: BACKDROP_HEIGHT }}
