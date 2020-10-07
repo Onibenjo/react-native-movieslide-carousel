@@ -6,7 +6,7 @@ Snack: <https://snack.expo.io/@catalinmiron/react-native-movie-2.0-carousel>
 
 ### Demo
 
-<img src="assets/motion_once.gif" width=50%>
+<img src="assets/motion_once.gif" width=35%>
 
 Thanks to @catalinmiron
 
